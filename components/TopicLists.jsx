@@ -26,7 +26,7 @@ const TopicLists = async () => {
   const { topics } = await getTopics();
 
   return (
-    <>{topics.map((topic) => (
+    <>{topics && topics.map((topic) => (
       <div 
       key={topic._id} 
       className='p-4 border border-slate-300 my-3 flex justify-between items-start gap-5 rounded-xl bg-purple-200'>
