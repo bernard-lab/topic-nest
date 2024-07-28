@@ -16,7 +16,7 @@ export async function POST(request) {
 export async function GET() {
   await connectMongoDB();
   const topics = await Topic.find();
-  return NextResponse.json({ topics });
+  return NextResponse.json(topics);
 }
 
 export async function DELETE(request) {

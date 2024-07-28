@@ -20,12 +20,11 @@ const getTopics = async () => {
   }
 }
 
-
-const TopicLists = async () => {
+export default async function TopicLists() {
   //Fetch data from database
-  const { topics } = await getTopics();
-
-  return (
+  const topics = await getTopics();
+  
+return (
     <>{topics && topics.map((topic) => (
       <div 
       key={topic._id} 
@@ -48,5 +47,3 @@ const TopicLists = async () => {
     </>
   )
 }
-
-export default TopicLists
