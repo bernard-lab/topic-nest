@@ -7,7 +7,6 @@ const url = process.env.NEXT_PUBLIC_URL;
 
 // GET Data from database
 const getTopics = async () => {
-  try {
     const response = await fetch(`${url}/api/topics`, {cache: "no-store"});
 
     if(!response.ok) {
@@ -15,9 +14,6 @@ const getTopics = async () => {
     }
 
     return response.json();
-  } catch(error){
-    console.log("Error Loading topics: ", error);
-  }
 }
 
 export default async function TopicLists() {
@@ -25,7 +21,7 @@ export default async function TopicLists() {
   const topics = await getTopics();
   
 return (
-    <>{topics && topics.map((topic) => (
+    <>{topics.map((topic) => (
       <div 
       key={topic._id} 
       className='p-4 border border-slate-300 my-3 flex justify-between items-start gap-5 rounded-xl bg-purple-200'>
